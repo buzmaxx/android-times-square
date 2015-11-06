@@ -24,17 +24,17 @@ public class MonthView extends LinearLayout {
       DateFormat weekdayNameFormat, Listener listener, Calendar today, int dividerColor,
       int dayBackgroundResId, int dayTextColorResId, int titleTextColor, boolean displayHeader,
       int headerTextColor, Locale locale) {
-    return create(parent, inflater, weekdayNameFormat, listener, today, dividerColor,
+    return create(parent, inflater, weekdayNameFormat, listener, today,
         dayBackgroundResId, dayTextColorResId, titleTextColor, displayHeader, headerTextColor, null,
         locale);
   }
 
   public static MonthView create(ViewGroup parent, LayoutInflater inflater,
-      DateFormat weekdayNameFormat, Listener listener, Calendar today, int dividerColor,
+      DateFormat weekdayNameFormat, Listener listener, Calendar today,
       int dayBackgroundResId, int dayTextColorResId, int titleTextColor, boolean displayHeader,
       int headerTextColor, List<CalendarCellDecorator> decorators, Locale locale) {
     final MonthView view = (MonthView) inflater.inflate(R.layout.month, parent, false);
-    view.setDividerColor(dividerColor);
+    view.setDividerColor(android.R.color.transparent);
     view.setDayTextColor(dayTextColorResId);
     view.setTitleTextColor(titleTextColor);
     view.setDisplayHeader(displayHeader);
@@ -148,7 +148,7 @@ public class MonthView extends LinearLayout {
   }
 
   public void setDividerColor(int color) {
-    grid.setDividerColor(color);
+    grid.setDividerColor(android.R.color.transparent);
   }
 
   public void setDayBackground(int resId) {

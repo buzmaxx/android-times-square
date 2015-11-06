@@ -80,7 +80,7 @@ public class CalendarPickerView extends ListView {
   private boolean displayOnly;
   SelectionMode selectionMode;
   Calendar today;
-  private int dividerColor;
+//  private int dividerColor;
   private int dayBackgroundResId;
   private int dayTextColorResId;
   private int titleTextColor;
@@ -114,10 +114,10 @@ public class CalendarPickerView extends ListView {
     TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.CalendarPickerView);
     final int bg = a.getColor(R.styleable.CalendarPickerView_android_background,
         res.getColor(R.color.calendar_bg));
-    dividerColor = a.getColor(R.styleable.CalendarPickerView_tsquare_dividerColor,
-        res.getColor(R.color.calendar_divider));
+//    dividerColor = a.getColor(R.styleable.CalendarPickerView_tsquare_dividerColor,
+//        res.getColor(R.color.calendar_divider));
     dayBackgroundResId = a.getResourceId(R.styleable.CalendarPickerView_tsquare_dayBackground,
-        R.drawable.calendar_bg_selector);
+        android.R.attr.selectableItemBackground);
     dayTextColorResId = a.getResourceId(R.styleable.CalendarPickerView_tsquare_dayTextColor,
         R.color.calendar_text_selector);
     titleTextColor = a.getColor(R.styleable.CalendarPickerView_tsquare_titleTextColor,
@@ -755,7 +755,7 @@ public class CalendarPickerView extends ListView {
       MonthView monthView = (MonthView) convertView;
       if (monthView == null) {
         monthView =
-            MonthView.create(parent, inflater, weekdayNameFormat, listener, today, dividerColor,
+            MonthView.create(parent, inflater, weekdayNameFormat, listener, today,
                 dayBackgroundResId, dayTextColorResId, titleTextColor, displayHeader,
                 headerTextColor, decorators, locale);
       } else {
