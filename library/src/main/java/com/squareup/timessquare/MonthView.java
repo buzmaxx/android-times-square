@@ -22,16 +22,16 @@ public class MonthView extends LinearLayout {
 
   public static MonthView create(ViewGroup parent, LayoutInflater inflater,
       DateFormat weekdayNameFormat, Listener listener, Calendar today, int dividerColor,
-      int dayBackgroundResId, int dayTextColorResId, int titleTextColor, boolean displayHeader,
+      /*int dayBackgroundResId,*/ int dayTextColorResId, int titleTextColor, boolean displayHeader,
       int headerTextColor, Locale locale) {
     return create(parent, inflater, weekdayNameFormat, listener, today,
-        dayBackgroundResId, dayTextColorResId, titleTextColor, displayHeader, headerTextColor, null,
+        /*dayBackgroundResId, */dayTextColorResId, titleTextColor, displayHeader, headerTextColor, null,
         locale);
   }
 
   public static MonthView create(ViewGroup parent, LayoutInflater inflater,
       DateFormat weekdayNameFormat, Listener listener, Calendar today,
-      int dayBackgroundResId, int dayTextColorResId, int titleTextColor, boolean displayHeader,
+      /*int dayBackgroundResId,*/ int dayTextColorResId, int titleTextColor, boolean displayHeader,
       int headerTextColor, List<CalendarCellDecorator> decorators, Locale locale) {
     final MonthView view = (MonthView) inflater.inflate(R.layout.month, parent, false);
     view.setDividerColor(android.R.color.transparent);
@@ -40,9 +40,9 @@ public class MonthView extends LinearLayout {
     view.setDisplayHeader(displayHeader);
     view.setHeaderTextColor(headerTextColor);
 
-    if (dayBackgroundResId != 0) {
-      view.setDayBackground(dayBackgroundResId);
-    }
+//    if (dayBackgroundResId != 0) {
+//      view.setDayBackground(dayBackgroundResId);
+//    }
 
     final int originalDayOfWeek = today.get(Calendar.DAY_OF_WEEK);
 

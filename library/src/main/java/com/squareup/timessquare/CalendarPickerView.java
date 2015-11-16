@@ -13,7 +13,9 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+
 import com.squareup.timessquare.MonthCellDescriptor.RangeState;
+
 import java.text.DateFormat;
 import java.text.DateFormatSymbols;
 import java.text.SimpleDateFormat;
@@ -81,7 +83,7 @@ public class CalendarPickerView extends ListView {
   SelectionMode selectionMode;
   Calendar today;
 //  private int dividerColor;
-  private int dayBackgroundResId;
+//  private int dayBackgroundResId;
   private int dayTextColorResId;
   private int titleTextColor;
   private boolean displayHeader;
@@ -114,10 +116,6 @@ public class CalendarPickerView extends ListView {
     TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.CalendarPickerView);
     final int bg = a.getColor(R.styleable.CalendarPickerView_android_background,
         res.getColor(R.color.calendar_bg));
-//    dividerColor = a.getColor(R.styleable.CalendarPickerView_tsquare_dividerColor,
-//        res.getColor(R.color.calendar_divider));
-    dayBackgroundResId = a.getResourceId(R.styleable.CalendarPickerView_tsquare_dayBackground,
-        android.R.attr.selectableItemBackground);
     dayTextColorResId = a.getResourceId(R.styleable.CalendarPickerView_tsquare_dayTextColor,
         R.color.calendar_text_selector);
     titleTextColor = a.getColor(R.styleable.CalendarPickerView_tsquare_titleTextColor,
@@ -446,10 +444,10 @@ public class CalendarPickerView extends ListView {
   }
 
   @Override protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-    if (months.isEmpty()) {
-      throw new IllegalStateException(
-          "Must have at least one month to display.  Did you forget to call init()?");
-    }
+//    if (months.isEmpty()) {
+//      throw new IllegalStateException(
+//          "Must have at least one month to display.  Did you forget to call init()?");
+//    }
     super.onMeasure(widthMeasureSpec, heightMeasureSpec);
   }
 
@@ -756,7 +754,7 @@ public class CalendarPickerView extends ListView {
       if (monthView == null) {
         monthView =
             MonthView.create(parent, inflater, weekdayNameFormat, listener, today,
-                dayBackgroundResId, dayTextColorResId, titleTextColor, displayHeader,
+               /* dayBackgroundResId,*/ dayTextColorResId, titleTextColor, displayHeader,
                 headerTextColor, decorators, locale);
       } else {
         monthView.setDecorators(decorators);
