@@ -5,9 +5,11 @@ import android.content.Context;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import java.text.DateFormat;
 import java.util.Calendar;
 import java.util.List;
@@ -172,6 +174,6 @@ public class MonthView extends LinearLayout {
   }
 
   public interface Listener {
-    void handleClick(MonthCellDescriptor cell);
+    void handleClick(MonthCellDescriptor cell, View view);
   }
 }
